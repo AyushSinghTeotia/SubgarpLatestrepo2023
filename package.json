@@ -1,0 +1,17 @@
+{
+  "name": "subgraph",
+  "license": "MIT",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --product hosted-service usdao-protocol/onvault",
+    "create-local": "graph create --node http://localhost:8020/ onvault/subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ onvault/subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 onvault/subgraph"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.30.0",
+    "@graphprotocol/graph-ts": "0.27.0",
+    "ejs": "3.1.7"
+  }
+}

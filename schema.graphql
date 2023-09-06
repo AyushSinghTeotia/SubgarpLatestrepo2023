@@ -1,0 +1,42 @@
+enum VaultStatus {
+  OPEN,
+  CLOSED
+}
+
+type Vault @entity {
+  id: Bytes! # address
+  debt: BigInt!
+  coll: BigInt!
+  NICR: BigInt
+  status: VaultStatus
+  transactionNo: BigInt!
+}
+
+type VaultHistory @entity{
+  id: String! # address-number
+  txn: Bytes!
+  address: Bytes! # address
+  action: String
+  debtChanged: BigInt
+  collChanged: BigInt
+  currentDebt: BigInt!
+  currentColl: BigInt!
+  timestamp: BigInt
+}
+
+type UserReward @entity {
+  id: Bytes! # address
+  assetRewarded: BigInt!
+}
+
+type DepositorRewardHistory @entity{
+  id: Bytes! # txn hash
+  address: Bytes!
+  timestamp: BigInt!
+  ethGain: BigInt
+  assetGain: BigInt
+  usdaoLoss: BigInt
+  fee: BigInt
+  netEthGain: BigInt
+  netAssetGain: BigInt
+}
